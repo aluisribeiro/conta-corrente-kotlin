@@ -1,15 +1,29 @@
 fun main(args: Array<String>){
-    var conta = ContaCorrente(
+    val contaAnderson = ContaCorrente(
         "Anderson",
-        10.0
+        1000.0
     )
 
-    conta.deposita(20.0)
-    println("Cliente: ${conta.cliente} - " +
-            "saldo: ${conta.saldo}")
+    val contaJoao = ContaCorrente(
+        "João",
+        1500.0
+    )
 
-    conta.saca(4.0)
-    println("Cliente: ${conta.cliente} - " +
-            "saldo: ${conta.saldo}")
+    val contaMaria = ContaCorrente(
+        "Maria",
+        1300.0
+    )
+
+    val itau = Banco("Itaú")
+    itau.atende(contaAnderson)
+    itau.atende(contaJoao)
+    itau.atende(contaMaria)
+
+    println("Saldo: ${itau.saldoTotal()}") //3800
+
+    contaMaria.deposita(400.0)
+
+    println("Saldo: ${itau.saldoTotal()}") //4200
+
 
 }
